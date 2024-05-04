@@ -43,4 +43,7 @@ jobs:
         run: |
           mkdir -a $HOME/.config/internetarchive
           echo '$IA_CONFIG'|base64 -d > $HOME/.config/internetarchive/ia.ini
-
+      - name: Upload To Internet Archive
+        working-directory: tinuous-inception/data
+        run: |
+          ia upload --keep-directories --no-derive --checksum --verify v2ray-action-archive-hqfi0pb *
