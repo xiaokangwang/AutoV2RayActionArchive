@@ -33,7 +33,7 @@ jobs:
           mkdir data
         working-directory: tinuous-inception
       - name: Run tinuous
-        run: tinuous -c fetchV2Ray.yaml --env /dev/null fetch
+        run: tinuous -c ./../fetchV2Ray.yaml --env /dev/null fetch
         working-directory: tinuous-inception/data
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
