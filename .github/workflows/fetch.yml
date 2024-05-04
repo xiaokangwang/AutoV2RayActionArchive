@@ -42,7 +42,7 @@ jobs:
           IA_CONFIG: ${{ secrets.IA_CONFIG }}
         run: |
           mkdir -p $HOME/.config/internetarchive
-          echo '$IA_CONFIG'|base64 -d > $HOME/.config/internetarchive/ia.ini
+          echo "$IA_CONFIG"|base64 -d > $HOME/.config/internetarchive/ia.ini
       - name: Upload To Internet Archive
         working-directory: tinuous-inception/data
         run: |
