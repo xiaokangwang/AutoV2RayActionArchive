@@ -1,0 +1,37 @@
+name: Fetch V2Ray CI logs
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v4
+        with:
+          path: tinuous-inception
+
+      - name: Checkout con/tinuous
+        uses: actions/checkout@v4
+        with:
+          repository: con/tinuous
+          path: tinuous
+          fetch-depth: 0
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '^3.8'
+
+      - name: Install tinuous dependencies
+        run: |
+          python -m pip install --upgrade pip wheel
+          python -m pip install ./tinuous
+
+      - name: Run tinuous
+        run: tinuous fetch
+        working-directory: tinuous-inception
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
