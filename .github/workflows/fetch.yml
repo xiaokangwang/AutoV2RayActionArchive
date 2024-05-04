@@ -33,9 +33,9 @@ jobs:
           python -m pip install --upgrade pip wheel internetarchive
           python -m pip install ./tinuous
       - name: Create Data Dir
-        working-directory: tinuous-inception
       	run: |
       	  mkdir data
+      	working-directory: tinuous-inception
       - name: Run tinuous
         run: tinuous -c fetchV2Ray.yaml --env /dev/null fetch
         working-directory: tinuous-inception/data
