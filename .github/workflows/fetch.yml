@@ -30,11 +30,11 @@ jobs:
 
       - name: Install tinuous dependencies
         run: |
-          python -m pip install --upgrade pip wheel
+          python -m pip install --upgrade pip wheel internetarchive
           python -m pip install ./tinuous
 
       - name: Run tinuous
-        run: tinuous fetch -c fetchV2Ray.yaml
-        working-directory: tinuous-inception
+        run: tinuous -c fetchV2Ray.yaml --env /dev/null fetch
+        working-directory: tinuous-inception/data
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
