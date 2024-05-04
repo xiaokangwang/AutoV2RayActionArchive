@@ -1,6 +1,9 @@
 name: Fetch V2Ray CI logs
 
 on:
+  push:
+    branches:
+      - master
   schedule:
     - cron: '0 0 * * *'
 
@@ -31,7 +34,7 @@ jobs:
           python -m pip install ./tinuous
 
       - name: Run tinuous
-        run: tinuous fetch
+        run: tinuous fetch -c fetchV2Ray.yaml
         working-directory: tinuous-inception
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

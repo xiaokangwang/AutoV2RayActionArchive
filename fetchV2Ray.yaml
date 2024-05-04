@@ -1,0 +1,10 @@
+repo: v2fly/v2ray-core
+vars:
+  path_prefix: '{year}//{month}//{day}/{ci}/{type}'
+  build_prefix: '{path_prefix}/{type_id}/{build_commit[:7]}'
+ci:
+  github:
+    paths:
+      logs: '{build_prefix}/{wf_name}/{number}/logs/'
+      artifacts: '{build_prefix}/{wf_name}/{number}/artifacts/'
+max-days-back: 3
