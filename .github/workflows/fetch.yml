@@ -36,5 +36,11 @@ jobs:
         run: tinuous -c ./../fetchV2Ray.yaml --env /dev/null fetch
         working-directory: tinuous-inception/data
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_CUSTOM_TOKEN }}
+      - name: Copy Secret
+        env:
+          IA_CONFIG: ${{ secrets.IA_CONFIG }}
+        run: |
+          mkdir -a $HOME/.config/internetarchive
+          echo '$IA_CONFIG'|base64 -d > $HOME/.config/internetarchive/ia.ini
 
