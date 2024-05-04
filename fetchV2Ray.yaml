@@ -7,4 +7,5 @@ ci:
     paths:
       logs: '{build_prefix}/{wf_name}/{number}/logs/'
       artifacts: '{build_prefix}/{wf_name}/{number}/artifacts/'
+      releases: '{path_prefix}/{release_tag}/'
 max-days-back: 3
