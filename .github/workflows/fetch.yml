@@ -46,4 +46,4 @@ jobs:
       - name: Upload To Internet Archive
         working-directory: tinuous-inception/data
         run: |
-          ia upload --keep-directories --no-derive --checksum --verify v2ray-action-archive-hqfi0pb *
+          ia upload --keep-directories --no-derive --checksum --verify --retries=655360  v2ray-action-archive-hqfi0pb *
